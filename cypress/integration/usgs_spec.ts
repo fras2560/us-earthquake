@@ -24,4 +24,16 @@ describe('Testing for the simple USGS data app', () => {
         // expecting one to be filtered out
         cy.get('[data-cy=errorFeedback]').should('be.visible');
     });
+    it('Able to view more details about earthquake', () => {
+        cy.server();
+        cy.fixture('three_earthquakes.json').then((quakes) => {
+            cy.route(SERVICE_URL, quakes);
+        });
+        cy.visit('');
+
+        // click more details for some earthquake and verify they are correct
+        cy.get(':nth-child(2) > [data-cy=showDetails] > .material-icons').click();
+        cy.get('[data-cy=place]').contains('Nevada');
+        cy.get('[data-cy=significance]').contains(67);
+    });
 });
