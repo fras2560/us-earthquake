@@ -12,6 +12,7 @@
             "@Interfaces/*": ["interfaces/*"],
             "@Services/*": ["services/*"]
         },
+        "types": ["cypress"]
     },
     "exclude": [
         "node_modules",
