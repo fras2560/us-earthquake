@@ -18,7 +18,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - name: UI Test with cypress
+    - name: Linting check
       run: |
         # now run the cypres tests against it
         npm install
