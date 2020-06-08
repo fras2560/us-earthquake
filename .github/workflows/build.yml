@@ -34,7 +34,8 @@ jobs:
         path: docs
     - name: Cypress Tests
       run: |
-        nohup npm start
+        npm run build
+        nohup npm start > /dev/null 2>&1 &
         npm run cypress:test
     - name: Upload Video Run
       uses: actions/upload-artifact@v1
