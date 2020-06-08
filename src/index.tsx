@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-
 import { getEarthquakes } from '@Services/usgs';
 import { List } from '@Components/list';
 import { Earthquake } from './interfaces/earthquake';

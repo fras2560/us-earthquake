@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:test": "cypress run",
     "setup": "npm install",
     "start": "webpack-dev-server --open --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "docs": "typedoc --stripInternal",
     "checkLint": "eslint '*/**/*.{js,ts,tsx}'"
@@ -20,6 +21,8 @@
     "@types/react-modal": "^3.10.5",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
+    "css-loader": "^3.5.3",
+    "cypress": "^4.7.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",

@@ -3,6 +3,12 @@ import * as React from 'react';
 import { Earthquake } from '@Interfaces/earthquake';
 import { Details } from '@Components/details';
 import * as Modal from 'react-modal';
+import Icon from '@material-ui/core/Icon';
+
+const buttonStyle = {
+    padding: '1px',
+    margin: '5px',
+};
 
 /** Custom style associated with the modal. */
 const customStyles = {
@@ -58,14 +64,18 @@ export class Element extends React.Component<{ earthquake: Earthquake }, { showD
                 >
                     <h2>Earthquake Details</h2>
                     <Details earthquake={this.props.earthquake}></Details>
-                    <button onClick={this.closeModal}>close</button>
+                    <button style={buttonStyle} data-cy="close" onClick={this.closeModal}>
+                        close
+                    </button>
                 </Modal>
             </div>
         );
         return (
-            <li>
+            <li data-cy="earthquake">
                 {this.props.earthquake.place} - {this.props.earthquake.mag}
-                <button onClick={this.openModal}>More details</button>
+                <button aria-label="More Details" style={buttonStyle} data-cy="showDetails" onClick={this.openModal}>
+                    <Icon>info</Icon>
+                </button>
                 {modal}
             </li>
         );

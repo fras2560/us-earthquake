@@ -13,6 +13,6 @@ export class List extends React.Component<{ quakes: Earthquake[] }, {}> {
         const renderedQuakes = this.props.quakes.map((quake: Earthquake, key: number) => (
             <Element key={key} earthquake={quake}></Element>
         ));
-        return <ul>{renderedQuakes}</ul>;
+        return <ul data-cy="earthquakes">{renderedQuakes}</ul>;
     }
 }
