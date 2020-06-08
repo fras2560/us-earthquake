@@ -24,7 +24,7 @@ jobs:
         npm install
         npm run checkLint
     - name: Build Docs
-        run: |
-          # ensure able to build the docs
-          npm run checkLint
+      run: |
+        # ensure able to build the docs
+        npm run docs
 
