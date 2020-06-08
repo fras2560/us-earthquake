@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI Linting and Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up npm
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: UI Test with cypress
+      run: |
+        # now run the cypres tests against it
+        npm install
+        npm run checkLint
