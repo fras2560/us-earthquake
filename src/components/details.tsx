@@ -10,6 +10,7 @@ const severityMap = {
     yellow: 'info',
     orange: 'warning',
     red: 'error',
+    null: 'info',
 };
 
 /** The details of a specific earthquake. */
