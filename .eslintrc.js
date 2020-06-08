@@ -10,6 +10,6 @@ module.exports = {
       sourceType: "module" // Allows for the use of imports
     },
     rules: {
-      "no-unused-vars": off
+      "no-unused-vars": "off"
     }
   };

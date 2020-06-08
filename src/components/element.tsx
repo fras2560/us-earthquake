@@ -1,64 +1,66 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
-import {Earthquake} from '@Interfaces/earthquake';
-import {Details} from '@Components/details'
+import { Earthquake } from '@Interfaces/earthquake';
+import { Details } from '@Components/details';
 import * as Modal from 'react-modal';
- 
+
+/** Custom style associated with the modal. */
 const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+    },
 };
- 
+
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#appContainer')
+Modal.setAppElement('#appContainer');
 
-
-export class Element extends React.Component<
-    {earthquake: Earthquake}, {showDetails: boolean}> {
-    constructor(props: {earthquake: Earthquake}) {
+export class Element extends React.Component<{ earthquake: Earthquake }, { showDetails: boolean }> {
+    constructor(props: { earthquake: Earthquake }) {
         super(props);
         this.state = {
             showDetails: false,
-        }
+        };
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
     }
 
     /** Close the modal that contains more details */
-    closeModal() {
+    closeModal(): void {
         this.setState({
-            showDetails: false
+            showDetails: false,
         });
     }
 
     /** Open the modal that contains more details. */
-    openModal() {
+    openModal(): void {
         this.setState({
-            showDetails: true
+            showDetails: true,
         });
     }
 
     /** Render the element */
-    render() {
+    render(): JSX.Element {
         const modal = (
             <div>
-            <Modal
-              isOpen={this.state.showDetails}
-              onAfterOpen={() => {console.log("Opened modal");}}
-              onRequestClose={this.closeModal}
-              style={customStyles}
-              contentLabel="Earthquake Details"
-            >
-              <h2>Earthquake Details</h2>
-              <Details earthquake={this.props.earthquake}></Details>
-              <button onClick={this.closeModal}>close</button>
-            </Modal>
-          </div>
+                <Modal
+                    isOpen={this.state.showDetails}
+                    onAfterOpen={(): void => {
+                        console.log('Opened modal');
+                    }}
+                    onRequestClose={this.closeModal}
+                    style={customStyles}
+                    contentLabel="Earthquake Details"
+                >
+                    <h2>Earthquake Details</h2>
+                    <Details earthquake={this.props.earthquake}></Details>
+                    <button onClick={this.closeModal}>close</button>
+                </Modal>
+            </div>
         );
         return (
             <li>
@@ -69,4 +71,3 @@ export class Element extends React.Component<
         );
     }
 }
-
