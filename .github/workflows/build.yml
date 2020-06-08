@@ -20,6 +20,11 @@ jobs:
         node-version: '10.x'
     - name: Linting check
       run: |
-        # now run the cypres tests against it
+        # now check install works and check for any lint issues
         npm install
         npm run checkLint
+    - name: Build Docs
+        run: |
+          # ensure able to build the docs
+          npm run checkLint
+
