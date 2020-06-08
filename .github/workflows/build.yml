@@ -28,17 +28,17 @@ jobs:
         # ensure able to build the docs
         npm run docs
     - name: Upload Documentation
-        uses: actions/upload-artifact@v1
-          with:
-            name: docs
-            path: docs
+      uses: actions/upload-artifact@v1
+      with:
+        name: docs
+        path: docs
     - name: Cypress Tests
       run: |
         nohup npm start
         npm run cypress:test
     - name: Upload Video Run
       uses: actions/upload-artifact@v1
-        with:
-          name: cypress-videos
-          path: cypress/videos
+      with:
+        name: cypress-videos
+        path: cypress/videos
 
