@@ -15,7 +15,7 @@ export class List extends React.Component<{ quakes: Earthquake[] }, {}> {
             <EarthquakeElement key={key} earthquake={quake}></EarthquakeElement>
         ));
         return (
-            <div>
+            <div className="centered">
                 <h1>USGS Earthquakes</h1>
                 <ul data-cy="earthquakes">{renderedQuakes}</ul>
             </div>
