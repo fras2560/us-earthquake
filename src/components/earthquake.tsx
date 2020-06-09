@@ -25,7 +25,8 @@ const customStyles = {
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#appContainer');
 
-export class Element extends React.Component<{ earthquake: Earthquake }, { showDetails: boolean }> {
+/**One earthquake element in a list. */
+export class EarthquakeElement extends React.Component<{ earthquake: Earthquake }, { showDetails: boolean }> {
     constructor(props: { earthquake: Earthquake }) {
         super(props);
         this.state = {
@@ -49,15 +50,12 @@ export class Element extends React.Component<{ earthquake: Earthquake }, { showD
         });
     }
 
-    /** Render the element */
+    /** Render the earthquake element. */
     render(): JSX.Element {
         const modal = (
             <div>
                 <Modal
                     isOpen={this.state.showDetails}
-                    onAfterOpen={(): void => {
-                        console.log('Opened modal');
-                    }}
                     onRequestClose={this.closeModal}
                     style={customStyles}
                     contentLabel="Earthquake Details"

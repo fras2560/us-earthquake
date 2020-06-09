@@ -1,8 +1,8 @@
 {
-  "name": "webpack-tutorial",
+  "name": "us-earthquake",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:test": "cypress run",

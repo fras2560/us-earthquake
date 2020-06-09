@@ -9,11 +9,12 @@ import * as Modal from 'react-modal';
 /** The minimum threshold for an earthquake to be displayed. */
 const MINIMUM_MAGNITUDE = 1.0;
 
-const response = getEarthquakes(MINIMUM_MAGNITUDE)
+/** Load the earthquakes and display them in a list. */
+getEarthquakes(MINIMUM_MAGNITUDE)
     .then((quakes: Earthquake[]) => {
-        console.log(quakes);
         ReactDOM.render(<List quakes={quakes} />, document.getElementById('appContainer'));
     })
     .catch((error) => {
+        // display some feedback if unable to load earthquakes
         ReactDOM.render(<ErrorFeedback />, document.getElementById('appContainer'));
     });

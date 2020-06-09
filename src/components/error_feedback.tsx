@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-/** The details of a specific earthquake. */
+/** Give feedback when unable to load earthquake details. */
 export class ErrorFeedback extends React.Component<{}, {}> {
     constructor(props: {}) {
         super(props);
     }
-    /** Renders the earthquake details. */
+    /** Render details explaining that there was an issue. */
     render(): JSX.Element {
         return (
             <div data-cy="errorFeedback">

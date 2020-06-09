@@ -5,6 +5,7 @@ const axios = require('axios').default;
 /** The URL of the service. */
 const SERVICE_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_hour.geojson';
 
+/** The expected structure of a feature. */
 interface FeatureStructure {
     properties: Earthquake;
 }
@@ -23,7 +24,6 @@ interface ResponseStructure {
  */
 export function getEarthquakes(minimumMagnitude: number): Promise<Earthquake[]> {
     return axios.get(SERVICE_URL).then((response: ResponseStructure): Earthquake[] => {
-        console.log(response);
         return response.data.features.reduce((quakes: Earthquake[], feature: FeatureStructure) => {
             const quake = feature.properties;
             if (quake.mag >= minimumMagnitude && quake.type == 'earthquake') {
